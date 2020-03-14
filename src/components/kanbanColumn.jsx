@@ -1,41 +1,22 @@
-import React, { Component } from "react";
-import { Container, Row, Col, Card, Button } from "react-bootstrap";
+import React from "react";
+import { Container, Row, Col, Card } from "react-bootstrap";
+import KanbanCard from "./kanbanCard";
 
-class columnComponent extends Component {
-  state = { queues: [] };
-  render() {
-    return (
-      <Container fluid="true">
-        {/* <br></br> */}
-        <Row>
-          <Col>
-            <Card style={{ width: "12rem" }}>
-              {/* <Card.Img variant="top" src="holder.js/100px180" /> */}
-              <Card.Body>
-                <Card.Title>Todo</Card.Title>
-                <Card.Text>
-                  New Incidents{" "}
-                  <Button variant="primary" size="sm">
-                    +
-                  </Button>
-                </Card.Text>
-              </Card.Body>
-            </Card>
-          </Col>
-          <Col>
-            <Card style={{ width: "12rem" }}>
-              {/* <Card.Img variant="top" src="holder.js/100px180" /> */}
-              <Card.Body>
-                <Card.Title>In Progress</Card.Title>
-                <Card.Text>Under Investigation</Card.Text>
-                {/* <Button variant="primary"></Button> */}
-              </Card.Body>
-            </Card>
-          </Col>
-        </Row>
-      </Container>
-    );
-  }
-}
+const KanbanQueue = props => (
+  <div>
+    <Card bg="light" style={{ width: "12rem" }}>
+      {/* <Card.Img variant="top" src="holder.js/100px180" /> */}
+      <Card.Body>
+        <Card.Title className="text-center">{props.queuename}</Card.Title>
+        <Card.Text></Card.Text>
+      </Card.Body>
+      <KanbanCard taskname="task1" taskdesc="task description" />
+      <KanbanCard taskname="task2" taskdesc="task description" />
+      <KanbanCard taskname="task3" taskdesc="task description" />
+      <KanbanCard taskname="task4" taskdesc="task description" />
+      <KanbanCard taskname="task5" taskdesc="task description" />
+    </Card>
+  </div>
+);
 
-export default columnComponent;
+export default KanbanQueue;
